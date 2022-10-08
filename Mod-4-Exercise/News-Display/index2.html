@@ -1,0 +1,90 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+<body onload="dispAllNews()">
+
+    <div id="newsAdd">
+        <table >
+            <tr>
+                <td style="font-family:sans-serif;">News Title</td>
+                <td style="font-family:sans-serif;">News Content</td>
+            </tr>
+            <tr>
+                <td><textarea name="title" id="title" cols="30" rows="5"></textarea></td>
+                <td><textarea  name="content" id="content" cols="30" rows="5"></textarea></td>
+                <td><button id="btnDisp" onclick="addNews()">Add News</button></td>
+                <td><button id="btnDisp" onclick="resetNews()">Clear News</button></td>
+                <td><button id="btnDelDisp" onclick="deleteNews()">Delete News</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row" id="mainDiv">
+
+    </div>
+
+    <script>
+        let news=[
+                    { id: 1, title: 'Teenage passenger dies in pole collision', content:"A teenage boy died after a car he was travelling in crashed into a pole in southwest Sydney overnight, and now police have asked the public to do one thing."},
+                    { id: 2, title: '5yo boy dies in car submerged by flood', content:"A five-year-old boy has died after becoming trapped inside a car submerged in floodwaters in NSW’s Central West."}, 
+                    { id: 3, title: 'New option for people ‘sleeping in their cars’', content:"One state has amended laws so that people “sleeping in their cars or tents” have another option to find a roof over their head."}
+                ];
+        dispNewsDiv = document.getElementById("mainDiv");
+        var i;
+        function dispAllNews()
+        {
+            for(i = 0; i<news.length; i++)
+            {   
+                div = document.createElement("div");
+                div.setAttribute("id", "dispNews");
+
+                div.className = "col-lg-4";
+
+                dispNewsDiv.appendChild(div);
+
+                h4 = document.createElement("h4");
+                p = document.createElement("p");
+
+                h4.innerHTML=news[i].title;
+                p.innerHTML=news[i].content;
+
+                div.appendChild(h4);
+                div.appendChild(p);
+            }
+        }
+        function addNews()
+        {       i++;
+                var obj = {};
+                obj["id"] = i;
+                obj["title"] = document.getElementById("title").value;
+                obj["content"] = document.getElementById("content").value;
+                news.push(obj);
+
+                div = document.createElement("div");
+                div.setAttribute("id", "dispNews");
+
+                div.className = "col-lg-4";
+
+                dispNewsDiv.appendChild(div);
+
+                h4 = document.createElement("h4");
+                p = document.createElement("p");
+
+                h4.innerHTML=document.getElementById("title").value;
+                p.innerHTML=document.getElementById("content").value;
+
+                div.appendChild(h4);
+                div.appendChild(p);
+        }
+        function resetNews(){
+            document.getElementById("title").value =" ";
+            document.getElementById("content").value =" ";
+        }
+        function deleteNews(){
+            div.remove();
+        }
+
+    </script>
+</body>
+
+</html>

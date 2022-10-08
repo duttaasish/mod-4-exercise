@@ -1,0 +1,85 @@
+<html>
+    <body>
+        <div style="height:10%; width:100%; background-color:honeydew;"></div>
+
+        <div style="height:80%; width:30%; background-color:lightcyan; float: left;">
+           <h4 style="text-align:center; margin-top:10px; margin-bottom: 0; font-family: sans-serif;">News Ttile</h4>
+            <textarea style="margin-top:7px; margin-left:8px;" name="enterNewsTitle" id="enterNewsTitle" cols="50" rows="7"></textarea>
+            <h4 style="text-align:center; margin-top:40px; margin-bottom: 0; font-family: sans-serif;">News Content</h4>
+            <textarea style="margin-top:7px ;margin-left:8px;" name="enterNewsContent" id="enterNewsContent" cols="50" rows="10"></textarea>
+            <center>
+            <button onClick="addNews()" style="margin-top:20px; height:30px; width:150px; font-family: sans-serif; background-color: darkblue; color: white; border: 0; border-radius: 20px;"><b>Add News</b></button>
+            <button onClick="clearNews()" style="margin-top:20px; height:30px; width:150px; font-family: sans-serif; background-color: rgb(192, 56, 22); color: white; border: 0; border-radius: 20px;"><b>Clear News</b></button>
+        </center>
+        </div>
+
+        <div style="height:70%; width:70%; background-color:lightskyblue;display:inline-block;">
+            <center>
+                <h1 style="color:rgb(194, 33, 33); margin-top:40px; font-family: sans-serif;" id="newsTitle"></h1>
+                <p style="padding:30px; font-size: 25px;font-family: sans-serif" id="newsContent"></p>
+            </center>   
+        </div>
+        <center>
+        <div style="height:10%; width:70%; background-color:lightskyblue;display:inline-block;">  
+                    <button onclick="newsPause()"  id="pause" style="margin-left:10px; height:50px; width:51px; border-radius: 50px; border:0" ><img src="pause.jpg" style="height:40px; width:40px; border-radius: 50px;"></button>
+                    <button onclick="newsPlay()"  id="play" style="margin-left:10px; height:50px; width:51px; border-radius: 50px; border:0" ><img src="play.jpeg" style="height:40px; width:40px; border-radius: 50px;"></button>
+        </div>
+        </center>
+<script>
+let news=[
+            { id: 1, title: 'Teenage passenger dies in pole collision', content:"A teenage boy died after a car he was travelling in crashed into a pole in southwest Sydney overnight, and now police have asked the public to do one thing."},
+            { id: 2, title: '5yo boy dies in car submerged by flood', content:"A five-year-old boy has died after becoming trapped inside a car submerged in floodwaters in NSW’s Central West."}, 
+            { id: 3, title: 'New option for people ‘sleeping in their cars’', content:"One state has amended laws so that people “sleeping in their cars or tents” have another option to find a roof over their head."}
+        ];
+
+        document.getElementById("play").style.display="none"
+        var stopInterval;
+       
+        var i = 0;
+        document.getElementById("newsTitle").innerHTML=news[i].title;
+        document.getElementById("newsContent").innerHTML=news[i].content;
+
+        stopInterval = setInterval(displayNews,5000);
+        function displayNews()
+        {    
+            document.getElementById("newsTitle").innerHTML=news[i].title;
+            document.getElementById("newsContent").innerHTML=news[i].content;
+            i++;
+            if(i >= news.length)
+            {
+                i = 0;
+            }
+        }
+
+        function addNews()
+        {
+            var j=news.length;
+            j++;
+            var obj = {};
+            obj["id"] = j;
+            obj["title"] = document.getElementById("enterNewsTitle").value;
+            obj["content"] = document.getElementById("enterNewsContent").value;
+            news.push(obj);   
+        }
+
+        function clearNews()
+        {
+            document.getElementById("enterNewsTitle").value =" ";
+            document.getElementById("enterNewsContent").value =" ";
+        }
+
+        function newsPause()
+            {
+                clearInterval(stopInterval);
+                document.getElementById("pause").style.display="none";
+                document.getElementById("play").style.display="inline";       
+            }
+        function newsPlay()
+        {
+            document.getElementById("pause").style.display="inline";
+            document.getElementById("play").style.display="none";
+            stopInterval = setInterval(displayNews,5000);
+        }
+</script>
+</body>
+</html>

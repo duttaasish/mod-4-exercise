@@ -1,0 +1,22 @@
+body{
+    background-color: skyblue;
+}
+.mainDiv
+{
+    background-color: azure;
+    margin-left: 30px;
+    margin-top:30px;
+    height: 250px;
+    width:  220px;
+    border-radius: 10px;
+}
+.secondDiv{
+
+    height: 30px;
+    width: 195px;
+    background-color: white;
+    border-style: solid;
+    border-radius: 3px;
+
+
+}

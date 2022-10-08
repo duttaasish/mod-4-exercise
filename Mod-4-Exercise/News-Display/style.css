@@ -1,0 +1,45 @@
+#mainDiv{
+    margin-left:5px;
+}
+#dispNews{
+    background-color:lightskyblue;
+     font-family:sans-serif; 
+     width:400px; height:200px; 
+     border-radius:10px; padding:10px;
+     margin-bottom: 10px;
+     margin-left: 5px;
+}
+h4{
+    margin-left:20px;
+    color:white; 
+    margin-top:10px; 
+}
+p{
+    margin-left:20px;
+}
+#newsAdd{
+    background-color:darkgray;
+    margin-bottom:20px;
+    margin-left: 10px;
+
+}
+#btnDisp{
+    padding: 8px;
+    width: 150px;
+    border-radius: 10px;
+    border: 0px;
+    background-color:lightskyblue;
+    margin-left: 5px;
+}
+#btnDelDisp{
+    padding: 8px;
+    width: 150px;
+    border-radius: 10px;
+    border: 0px;
+    background-color:rgb(207, 46, 46);
+    color:white;
+    margin-left: 5px;
+}
+table{
+    
+}
