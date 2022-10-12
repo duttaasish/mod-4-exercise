@@ -2,12 +2,12 @@
     <body>
         <div style="height:10%; width:100%; background-color:honeydew;"></div>
 
-        <div style="height:80%; width:30%; background-color:lightcyan; float: left;">
+        <div style="height:80%; width:30%; background-color:lightcyan; float: left;"> <!-- try and put all CSS in a stylesheet instead of inline -->
            <h4 style="text-align:center; margin-top:10px; margin-bottom: 0; font-family: sans-serif;">News Ttile</h4>
             <textarea style="margin-top:7px; margin-left:8px;" name="enterNewsTitle" id="enterNewsTitle" cols="50" rows="7"></textarea>
             <h4 style="text-align:center; margin-top:40px; margin-bottom: 0; font-family: sans-serif;">News Content</h4>
             <textarea style="margin-top:7px ;margin-left:8px;" name="enterNewsContent" id="enterNewsContent" cols="50" rows="10"></textarea>
-            <center>
+            <center> <!-- these are old deprecated HTML tags, best avoided and replaced with CSS for centering -->
             <button onClick="addNews()" style="margin-top:20px; height:30px; width:150px; font-family: sans-serif; background-color: darkblue; color: white; border: 0; border-radius: 20px;"><b>Add News</b></button>
             <button onClick="clearNews()" style="margin-top:20px; height:30px; width:150px; font-family: sans-serif; background-color: rgb(192, 56, 22); color: white; border: 0; border-radius: 20px;"><b>Clear News</b></button>
         </center>
@@ -33,7 +33,7 @@ let news=[
         ];
 
         document.getElementById("play").style.display="none"
-        var stopInterval;
+        var stopInterval; //try and get into the habit of using let instead of var
        
         var i = 0;
         document.getElementById("newsTitle").innerHTML=news[i].title;
