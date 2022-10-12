@@ -1,0 +1,49 @@
+<html>
+
+    <!-- This example combines the templating and fetching techniques in the exercises you missed, to keep as a reference -->
+    
+    <template id="news-item">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Card text</a>
+            </div>
+          </div>
+        </div>
+    </template>
+
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+        <style>
+            .card { margin: 20px; }
+            .card:first-child { margin-left: 0; }
+            input { margin-right: 20px; }
+        </style>
+    </head>
+
+    <body>
+        <section class="container">
+            <h1>Data fetching example</h1>
+            <div id="post-list" class="row"></div>
+        </section>
+    </body>
+
+    <script>
+        function addCards(data) {
+
+            data.forEach((card) => {
+                const template = document.getElementById("news-item").content.cloneNode(true);
+                template.querySelector('.card-title').innerText = card.title;
+                template.querySelector('.card-text').innerText = card.body;
+                document.querySelector('#post-list').appendChild(template);
+            });
+        }
+
+        fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+            .then((response) => response.json())
+            .then((json) => { console.log(json); addCards(json) });
+
+    </script>
+</html>
